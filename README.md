@@ -1,7 +1,7 @@
 # 基于Sustaining vulnerable agroecosystems with compost: Lasting benefits to soil health and carbon storage in semiarid winter wheat (Triticum aestivum, L.)文献的部分数据图复现
 
 ## 小组成员
-* @cvvcI 程伟东2025303120043
+* [@cvvcI](https://github.com/cvvcI) 程伟东2025303120043
 * @YI-1005 魏伊洁2025303120064
 * @JWenJing 焦文静2025303110019
 * @Wangchenyang321 王晨阳2025303110073
