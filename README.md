@@ -4,7 +4,7 @@
 * [@cvvcI](https://github.com/cvvcI) 程伟东2025303120043
 * [@YI-1005](https://github.com/YI-1005) 魏伊洁2025303120064
 * [@JWenJing](https://github.com/JWenJing) 焦文静2025303110019
-* @Wangchenyang321 王晨阳2025303110073
+* [@Wangchenyang321](https://github.com/Wangchenyang321) 王晨阳2025303110073
 * [@KINGWINM](https://github.com/KINGWINM)王胜2025303120135
   
 ## 复现性评估
