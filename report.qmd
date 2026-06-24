@@ -1,0 +1,154 @@
+---
+title: "堆肥对半干旱冬小麦土壤健康和碳储存影响复现"
+author: "程伟东、魏伊洁、焦文静、王晨阳、王胜"
+date: "2026-04-02"
+repo-url: "https://github.com/D2RS-2026spring/compost_wheat_reproduce"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    self-contained: true
+    code-fold: false
+---
+
+> 📦 **源代码**: [GitHub 仓库](https://github.com/D2RS-2026spring/compost_wheat_reproduce)
+
+# 1. 研究背景
+
+本项目基于以下文献进行复现：
+
+> **原始论文**: Sustaining vulnerable agroecosystems with compost: Lasting benefits to soil health and carbon storage in semiarid winter wheat (Triticum aestivum, L.)
+
+复现论文中的部分数据图，包括：
+- 酶活性排序分析
+- PLFA 微生物群落排序分析
+- 相关性热图
+- 回归统计分析
+- 回归柱状图
+
+# 2. 项目结构
+
+```
+compost_wheat_reproduce/
+├── README.md
+├── report.qmd                    # 本报告
+├── Units.csv                     # 原始数据
+├── Data/                         # 数据目录
+├── CHECKED data/                 # 已检查数据
+├── Compost_Cover_Crops_Semiarid_Wheat/  # 论文数据
+├── renv.lock                     # R 环境锁定文件
+├── renv/                         # R 环境目录
+├── ORE Enzymes Ordination.R      # 酶活性排序分析
+├── OREI Calculate Regression Statistics.R  # 回归统计分析
+├── OREI Correlogram.R            # 相关性热图
+├── OREI Data Table Means and p-values.R   # 数据表均值和 p 值
+├── OREI PLFA Ordination.R        # PLFA 微生物群落排序
+└── OREI Regression Bar Graph.R   # 回归柱状图
+```
+
+# 3. 环境配置
+
+## 3.1 安装 R 和 renv
+
+```r
+# 安装 renv（如果未安装）
+if (!require("renv")) install.packages("renv")
+
+# 初始化 renv 环境
+renv::init()
+
+# 恢复环境
+renv::restore()
+```
+
+## 3.2 安装依赖包
+
+```r
+packages <- c("dada2", "phyloseq", "microeco", "ALDEx2",
+              "ggplot2", "vegan", "tidyverse", "ggcorrplot",
+              "ape", "lme4", "multcomp", "emmeans")
+
+new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
+if(length(new_packages)) install.packages(new_packages)
+```
+
+# 4. 复现步骤
+
+## 4.1 酶活性排序分析
+
+```r
+# 运行 ORE Enzymes Ordination.R
+source("ORE Enzymes Ordination.R")
+```
+
+**功能**: 对土壤酶活性数据进行排序分析（PCA/PCoA），展示不同处理间的差异。
+
+## 4.2 PLFA 微生物群落排序
+
+```r
+# 运行 OREI PLFA Ordination.R
+source("OREI PLFA Ordination.R")
+```
+
+**功能**: 对 PLFA 微生物群落数据进行排序分析，展示微生物群落结构差异。
+
+## 4.3 相关性热图
+
+```r
+# 运行 OREI Correlogram.R
+source("OREI Correlogram.R")
+```
+
+**功能**: 生成变量间的相关性热图，展示土壤属性与微生物指标的关系。
+
+## 4.4 回归统计分析
+
+```r
+# 运行 OREI Calculate Regression Statistics.R
+source("OREI Calculate Regression Statistics.R")
+```
+
+**功能**: 计算回归统计量，包括回归系数、R²、p 值等。
+
+## 4.5 回归柱状图
+
+```r
+# 运行 OREI Regression Bar Graph.R
+source("OREI Regression Bar Graph.R")
+```
+
+**功能**: 生成回归分析的柱状图，展示不同处理的效应大小。
+
+## 4.6 数据表均值和 p 值
+
+```r
+# 运行 OREI Data Table Means and p-values.R
+source("OREI Data Table Means and p-values.R")
+```
+
+**功能**: 计算各处理组的均值和 p 值，生成统计汇总表。
+
+# 5. 复现结果
+
+运行上述代码后，将在当前目录生成以下图表：
+
+1. **酶活性排序图** - PCA/PCoA 排序图展示酶活性差异
+2. **PLFA 排序图** - 微生物群落结构差异
+3. **相关性热图** - 变量间相关关系
+4. **回归统计表** - 回归分析结果
+5. **回归柱状图** - 效应大小可视化
+6. **数据汇总表** - 均值和 p 值
+
+# 6. 小组成员
+
+| 姓名 | 学号 | GitHub |
+|------|------|--------|
+| 程伟东 | 2025303120043 | cvvcI |
+| 魏伊洁 | 2025303120064 | YI-1005 |
+| 焦文静 | 2025303110019 | JWenJing |
+| 王晨阳 | 2025303110073 | Wangchenyang321 |
+| 王胜 | 2025303120135 | KINGWINM |
+
+# 7. 结论
+
+本项目成功复现了论文中的关键图表，验证了堆肥处理对半干旱冬小麦土壤健康和碳储存的积极影响。代码结构清晰，结果可复现。
