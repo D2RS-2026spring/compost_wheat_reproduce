@@ -318,6 +318,14 @@ knitr::kable(p_values, caption = "ANOVA 检验 p 值")
 
 # 5. 复现结果
 
+## 5.1 酶活性 PCA 排序分析结果
+
+![酶活性 PCA 排序分析](images/README_image.png)
+
+**图注**: 展示不同堆肥处理（Compost Rate）和耕作阶段（Cropping Phase）下的土壤酶活性 PCA 排序结果。左图显示堆肥率和施用年数的差异，右图显示耕作阶段和采样年的差异。
+
+## 5.2 预期输出图表
+
 运行上述代码后，将在当前目录生成以下图表：
 
 1. **酶活性排序图** - PCA/PCoA 排序图展示酶活性差异
